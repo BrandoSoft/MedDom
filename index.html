@@ -47,17 +47,17 @@
             <div class="partName">asdasd</div>
             <div class="psm" id="psm">
                 <div id="left" class="lewa_strona">
-                    <div class="uziemiacz" id="UZIEM"></div>
-                    <div class="czarmander"></div>
+                    <div class="uziemiacz" id="uziemiacz"></div>
+                    <div class="czarmander" id="czarmander"></div>
                 </div>
                 <div id="center" class="srodek">
-                    <div class="trafoDuze"></div>
-                    <div class="kondziol"></div>
+                    <div class="trafoDuze" id="trafoDuze"></div>
+                    <div class="kondziol" id="kondziol"></div>
                 </div>
                 <div id="right" class="prawa_strona">
-                    <div class="dlawik1"></div>
-                    <div class="dlawik2"></div>
-                    <div class="moduly"></div>
+                    <div class="dlawik1" id="dlawik1"></div>
+                    <div class="dlawik2" id="dlawik2"></div>
+                    <div class="moduly" id="moduly"></div>
                 </div>
             </div>
         </section>
@@ -114,10 +114,28 @@
                 moveItems(moduly);
             }
         }
+        const moveAllBack = () => {
+            if (document.querySelector('#psm').classList.contains('psmActive')) {
+                moveItemsBack(psm);
+                moveItemsBack(uziemiacz);
+                moveItemsBack(czarmander);
+                moveItemsBack(trafoDuze);
+                moveItemsBack(kondziol);
+                moveItemsBack(dlawik1);
+                moveItemsBack(dlawik2);
+                moveItemsBack(moduly);
+            }
+        }
 
 
         const moveItems = (param) => {
             param.classList.add(param.className + 'Active');
+
+        }
+
+        const moveItemsBack = (param) => {
+            param.classList.remove(param.id + 'Active');
+
 
         }
         document.querySelectorAll('.leftIcon').forEach(element => {
@@ -184,11 +202,14 @@
                 })
             })
         }
+        document.querySelector('#open').addEventListener('click', () => {
 
-        const reMoveItems = (param) => {
-            param.classList.remove(param.className + 'Active');
+            moveAll()
+        })
+        document.querySelector('#close').addEventListener('click', () => {
+            moveAllBack()
 
-        }
+        })
     </script>
 </body>
 
