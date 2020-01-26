@@ -68,10 +68,123 @@
             </ul>
         </div>
     </div>
-    <script src="script/project.js"></script>
+    <!-- <script src="script/project.js"></script>
     <script src="script/activeItems.js"></script>
-    <script src="script/main.js"></script>
+    <script src="script/main.js"></script> -->
+    <script>
+        class Device {
+            constructor(name, parts) {
+                this.name = name;
+                this.parts = parts;
+            }
+            getParts() {
+                return this.parts;
+            }
+        }
 
+        const PSM50 = new Device("PSM 50 HV", [
+            'czarmander',
+            'uziemiacz',
+            'diody',
+            'prawa strona',
+            'lewa strona',
+            'radiator',
+            'prostownik',
+        ])
+        const psm = document.querySelector('.psm');
+        const uziemiacz = document.querySelector('.uziemiacz')
+        const czarmander = document.querySelector('.czarmander')
+        const trafoDuze = document.querySelector('.trafoDuze')
+        const kondziol = document.querySelector('.kondziol')
+        const dlawik1 = document.querySelector('.dlawik1')
+        const dlawik2 = document.querySelector('.dlawik2')
+        const moduly = document.querySelector('.moduly')
+
+
+        const moveAll = () => {
+            if (!document.querySelector('#psm').classList.contains('psmActive')) {
+                console.log('nie posada')
+                moveItems(psm);
+                moveItems(uziemiacz);
+                moveItems(czarmander);
+                moveItems(trafoDuze);
+                moveItems(kondziol);
+                moveItems(dlawik1);
+                moveItems(dlawik2);
+                moveItems(moduly);
+            }
+        }
+
+
+        const moveItems = (param) => {
+            param.classList.add(param.className + 'Active');
+
+        }
+        document.querySelectorAll('.leftIcon').forEach(element => {
+            element.addEventListener('click', (e) => {
+                const menu = (e.target.parentNode).parentNode;
+
+                // console.log(element)
+                element.classList.toggle('activeColorLeft')
+                menu.classList.toggle('activeLeft')
+            })
+
+        });
+
+        const spanParts = document.querySelector('.leftMenuBig span');
+        const spanContent = document.querySelector('.leftMenuContent');
+        const partList = PSM50.getParts();
+        const sectionVisibility = document.querySelector('section');
+
+
+        spanParts.addEventListener('click', () => {
+            const ul = document.createElement('ul');
+
+            if (!document.querySelector('.leftMenuContent ul')) {
+                spanContent.appendChild(ul);
+
+                for (let i = 0; i < partList.length; i++) {
+                    const li = document.createElement('li')
+                    li.textContent = partList[i];
+                    ul.appendChild(li);
+
+                    sectionVisibility.classList.toggle('visible')
+                }
+            } else {
+                const remover = document.querySelector('.leftMenuContent ul');
+                remover.remove();
+                sectionVisibility.classList.toggle('visible')
+            }
+            addListenerToMenu();
+            addListenerToParts();
+        })
+
+        const addListenerToMenu = () => {
+            document.querySelectorAll('.leftMenuContent li').forEach(item => {
+                item.addEventListener('click', () => {
+                    moveAll();
+                    showNameOfPart(item.textContent);
+                })
+            })
+        }
+
+        const partName = document.querySelector('.partName');
+
+        const showNameOfPart = (name) => {
+            partName.textContent = name;
+        }
+
+
+
+        const addListenerToParts = () => {
+            document.querySelectorAll('.psm div').forEach(item => {
+                item.addEventListener('click', () => {
+                    console.log("to jest" + item.textContent);
+                    showNameOfPart(item.id);
+                })
+            })
+        }
+    </script>
 </body>
 
 </html>
