@@ -1,0 +1,152 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+@media (max-width: 360px) and (orientation: portrait) {
+
+
+    .wrap {
+        height: 100vh;
+        width: 100vw;
+        background-color: darksalmon;
+    }
+
+    .main {
+        position: relative;
+        height: 90vh;
+    }
+
+    .menu {
+        height: 10vh;
+        background-color: blue;
+    }
+
+    /* ----------------------- LEFT MENU ------------------------  */
+    .main .leftIcon i {
+        font-size: 30px;
+        line-height: 40px;
+        color: white;
+        padding: 0 5px;
+    }
+
+    .main .lMenu1 i {
+        transform: rotate(180deg);
+
+    }
+
+    .leftIcon {
+        position: absolute;
+        height: 40px;
+        width: 50px;
+        background-color: darkslateblue;
+        border-radius: 0 30px 30px 0;
+        transition: .5s linear;
+        transform: translateX(50px);
+    }
+
+    .leftMenuBig {
+        position: absolute;
+        height: 50%;
+        width: 60%;
+        background-color: darkslateblue;
+        top: 20%;
+        left: -60%;
+        border-radius: 0 30px 30px 0;
+        transition: .2s linear;
+    }
+
+    .leftMenuContent {
+        position: absolute;
+        top: 8%;
+        right: 0;
+        height: 80%;
+        width: 75%;
+        background-color: teal;
+    }
+
+    .leftMenuBig span {
+        color: white;
+        display: block;
+        padding: 10px 5px;
+        background-color: seagreen;
+    }
+
+    .leftMenuBig ul {
+        text-transform: uppercase;
+        list-style: none;
+        padding: 10px 10px;
+    }
+
+    .leftMenuBig ul li {
+        color: rgb(7, 8, 8);
+        padding: 3px 0;
+    }
+
+
+    .lMenu1 {
+        right: 0;
+        top: 8%;
+
+    }
+
+    .lMenu2 {
+        right: 0;
+        top: 28%;
+    }
+
+    .lMenu3 {
+        right: 0;
+        top: 48%;
+    }
+
+    .activeLeft {
+        transform: translateX(100%);
+    }
+
+    .activeColorLeft {
+        background-color: teal;
+    }
+
+    /* ----------------------- Right MENU ------------------------  */
+    .rightMenu {
+        position: absolute;
+        height: 40px;
+        width: 50px;
+        background-color: darkslateblue;
+        right: 0%;
+        border-radius: 30px 0 0 30px;
+    }
+
+    .main .rightMenu i {
+        font-size: 30px;
+        line-height: 40px;
+        color: white;
+        padding: 0 0 0 14px;
+    }
+
+    .tools {
+        top: 20%
+    }
+
+    .biohazard {
+        top: 30%
+    }
+
+    .secret {
+        top: 40%
+    }
+
+    .jedi {
+        top: 50%
+    }
+
+    .usb {
+        top: 60%
+    }
+
+
+}
