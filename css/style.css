@@ -70,10 +70,12 @@
     }
 
     .leftMenuBig span {
+        position: relative;
         color: white;
         display: block;
         padding: 10px 5px;
         background-color: seagreen;
+        z-index: 1;
     }
 
     .leftMenuBig ul {
