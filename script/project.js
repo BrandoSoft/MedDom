@@ -8,4 +8,12 @@ class Device {
     }
 }
 
-const PSM50 = new Device("PSM 50 HV", ['charmander', 'uziemiacz', 'diody', 'prawa strona', 'lewa strona', 'radiator', 'prostownik'])
+const PSM50 = new Device("PSM 50 HV", [
+    'czarmander',
+    'uziemiacz',
+    'diody',
+    'prawa strona',
+    'lewa strona',
+    'radiator',
+    'prostownik',
+])
