@@ -2,7 +2,6 @@ document.querySelectorAll('.leftIcon').forEach(element => {
     element.addEventListener('click', (e) => {
         const menu = (e.target.parentNode).parentNode;
 
-        // console.log(element)
         element.classList.toggle('activeColorLeft')
         menu.classList.toggle('activeLeft')
     })
